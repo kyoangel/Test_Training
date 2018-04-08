@@ -6,12 +6,23 @@ namespace XmasChecker.Tests
     [TestClass()]
     public class XmasCheckerTests
     {
+        private fakeXmasChecker _fakeXmasChecker = new fakeXmasChecker();
+
         [TestMethod()]
         public void test_today_is_xmas()
         {
-            var fakeXmasChecker = new fakeXmasChecker();
-            fakeXmasChecker.SetToday(new DateTime(2018, 12, 25));
-            Assert.IsTrue(fakeXmasChecker.IsTodayXmas());
+            GivenToday(new DateTime(2018, 12, 25));
+            TheResultShouldBe(true);
+        }
+
+        private void TheResultShouldBe(bool expected)
+        {
+            Assert.AreEqual(expected, _fakeXmasChecker.IsTodayXmas());
+        }
+
+        private void GivenToday(DateTime today)
+        {
+            _fakeXmasChecker.SetToday(today);
         }
     }
 
