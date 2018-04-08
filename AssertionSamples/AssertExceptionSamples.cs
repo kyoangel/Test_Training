@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using FluentAssertions.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace AssertionSamples
@@ -18,9 +20,12 @@ namespace AssertionSamples
         public void Divide_Zero()
         {
             var calculator = new Calculator();
-            var actual = calculator.Divide(5, 0);
-
+            var action = new Action(() =>
+            {
+                calculator.Divide(5, 0);
+            });
             //how to assert expected exception?
+            action.Should().Throw<YouShallNotPassException>().And.Number.IsSameOrEqualTo(5);
         }
     }
 
@@ -38,5 +43,6 @@ namespace AssertionSamples
 
     public class YouShallNotPassException : Exception
     {
+        public decimal Number { get; set; }
     }
 }
