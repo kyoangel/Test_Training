@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RsaSecureToken;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NSubstitute;
 
 namespace RsaSecureToken.Tests
 {
@@ -14,12 +9,46 @@ namespace RsaSecureToken.Tests
         [TestMethod()]
         public void IsValidTest()
         {
-            var target = new AuthenticationService();
+            var target = new FakeAuthService();
+            var fakeProfile = Substitute.For<IProfileDao>();
+            fakeProfile.GetPassword(Arg.Any<string>()).Returns("Tdd");
+            target.SetProfileDao(fakeProfile);
+
+            var fakeToken = Substitute.For<IRsaTokenDao>();
+            fakeToken.GetRandom(Arg.Any<string>()).Returns("520999");
+            target.SetRsaToken(fakeToken);
 
             var actual = target.IsValid("Kyo", "Tdd520999");
 
             //always failed
             Assert.IsTrue(actual);
+        }
+    }
+
+    public class FakeAuthService : AuthenticationService
+    {
+        private IProfileDao _profile;
+        private IRsaTokenDao _token;
+
+        protected override IProfileDao GetProfileDao()
+        {
+            return _profile ?? base.GetProfileDao();
+        }
+
+        public void SetProfileDao(IProfileDao profile)
+        {
+            _profile = profile;
+        
+        }
+
+        protected override IRsaTokenDao GetRsaToken()
+        {
+            return _token ?? base.GetRsaToken();
+        }
+
+        public void SetRsaToken(IRsaTokenDao token)
+        {
+            _token = token;
         }
     }
 }
