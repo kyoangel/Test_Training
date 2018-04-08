@@ -44,9 +44,13 @@ namespace RsaSecureToken
 
         static Context()
         {
-            profiles = new Dictionary<string, string>();
-            profiles.Add("joey", "91");
-            profiles.Add("mei", "99");
+            profiles = GetProfilesFromDb();
+        }
+
+        private static Dictionary<string, string> GetProfilesFromDb()
+        {
+            //Database is not ready yet
+            throw new NotImplementedException();
         }
 
         public static string GetPassword(string key)

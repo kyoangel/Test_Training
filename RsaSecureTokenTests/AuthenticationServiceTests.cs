@@ -16,7 +16,7 @@ namespace RsaSecureToken.Tests
         {
             var target = new AuthenticationService();
 
-            var actual = target.IsValid("joey", "91000000");
+            var actual = target.IsValid("Kyo", "Tdd520999");
 
             //always failed
             Assert.IsTrue(actual);
