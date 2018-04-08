@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmasCheckerTests", "XmasChe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssertionSamples", "AssertionSamples\AssertionSamples.csproj", "{C186F4B6-34F6-4ADA-8536-DF0563C99D12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseClassCoupling", "BaseClassCoupling\BaseClassCoupling.csproj", "{EABC6986-ED97-4895-A0B3-FEED02ED5346}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C186F4B6-34F6-4ADA-8536-DF0563C99D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C186F4B6-34F6-4ADA-8536-DF0563C99D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C186F4B6-34F6-4ADA-8536-DF0563C99D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
