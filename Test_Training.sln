@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssertionSamples", "Asserti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseClassCoupling", "BaseClassCoupling\BaseClassCoupling.csproj", "{EABC6986-ED97-4895-A0B3-FEED02ED5346}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsolatedByInheritanceAndOverride", "IsolatedByInheritanceAndOverride\IsolatedByInheritanceAndOverride.csproj", "{2AE6E3AB-FDB3-4D1A-8DB1-43A6CFC4EE1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsolatedByInheritanceAndOverrideTests", "IsolatedByInheritanceAndOverrideTests\IsolatedByInheritanceAndOverrideTests.csproj", "{52937E84-85DC-4907-AF26-D24876E0AF06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EABC6986-ED97-4895-A0B3-FEED02ED5346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE6E3AB-FDB3-4D1A-8DB1-43A6CFC4EE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE6E3AB-FDB3-4D1A-8DB1-43A6CFC4EE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE6E3AB-FDB3-4D1A-8DB1-43A6CFC4EE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE6E3AB-FDB3-4D1A-8DB1-43A6CFC4EE1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52937E84-85DC-4907-AF26-D24876E0AF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52937E84-85DC-4907-AF26-D24876E0AF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52937E84-85DC-4907-AF26-D24876E0AF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52937E84-85DC-4907-AF26-D24876E0AF06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
