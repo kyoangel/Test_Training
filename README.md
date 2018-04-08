@@ -4,21 +4,21 @@ Project seqence
 - 1.XmasChecker
     - for dependency can't control
     - production code can't change signature
-- 2.AssertionSamples
-    - compare object by properties
-    - partial compare
-    - verify Exceptions
-- 3.RsaSecureToken
+- 2.RsaSecureToken
     - learn dependency by Interface
     - stub/mock framework (NSubstitute)
     - DI / IoC
-- 4.IsolatedByInheritanceAndOverride
+- 3.IsolatedByInheritanceAndOverride
     - isolated by inheritance and virtual keyword
     - mock object to verify
-- 5.BaseClassCoupling
+- 4.BaseClassCoupling
     - isolated static dependency
     - inheritance override
     - property injection
+- 5.AssertionSamples
+    - compare object by properties
+    - partial compare
+    - verify Exceptions
 
 tips: 傳入 stub 物件的多種方式，可參考：
 --
