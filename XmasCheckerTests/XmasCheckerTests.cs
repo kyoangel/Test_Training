@@ -15,6 +15,13 @@ namespace XmasChecker.Tests
             TheResultShouldBe(true);
         }
 
+        [TestMethod()]
+        public void test_today_is_not_xmas()
+        {
+            GivenToday(new DateTime(2018, 2, 28));
+            TheResultShouldBe(false);
+        }
+
         private void TheResultShouldBe(bool expected)
         {
             Assert.AreEqual(expected, _fakeXmasChecker.IsTodayXmas());
