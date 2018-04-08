@@ -44,6 +44,11 @@ namespace AssertionSamples
         public void PartialCompare_Customer_Birthday_And_Order_Price()
         {
             var actual = _customerRepo.GetComposedCustomer();
+            var expected = new Customer()
+            {
+                Birthday = new DateTime(1999, 9, 9),
+                Order = new Order { Price = 91 },
+            };
 
             //how to assert actual is equal to expected?
             Assert.Fail();
