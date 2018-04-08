@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using XmasChecker;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace XmasChecker.Tests
 {
@@ -12,9 +7,26 @@ namespace XmasChecker.Tests
     public class XmasCheckerTests
     {
         [TestMethod()]
-        public void IsTodayXmasTest()
+        public void test_today_is_xmas()
         {
-            Assert.Fail();
+            var fakeXmasChecker = new fakeXmasChecker();
+            fakeXmasChecker.SetToday(new DateTime(2018, 12, 25));
+            Assert.IsTrue(fakeXmasChecker.IsTodayXmas());
+        }
+    }
+
+    public class fakeXmasChecker : XmasChecker
+    {
+        private DateTime? _today;
+
+        internal override DateTime GetToday()
+        {
+            return _today ?? DateTime.Today;
+        }
+
+        internal void SetToday(DateTime today)
+        {
+            _today = today;
         }
     }
 }
