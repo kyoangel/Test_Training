@@ -10,7 +10,7 @@ namespace RsaSecureToken.Tests
         public void IsValidTest()
         {
             var fakeProfile = Substitute.For<ProfileDao>();
-            fakeProfile.GetRegisterTimeInMinutes(Arg.Any<string>()).ReturnsForAnyArgs(100);
+            fakeProfile.GetRegisterTimeInMinutes(Arg.Any<string>());
             var fakeToken = Substitute.For<RsaTokenDao>();
             fakeToken.GetRandom(Arg.Any<int>()).ReturnsForAnyArgs("123456");
             var target = new AuthenticationService(fakeProfile, fakeToken);
