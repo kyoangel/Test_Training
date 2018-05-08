@@ -9,13 +9,13 @@ namespace RsaSecureToken.Tests
         [TestMethod()]
         public void IsValidTest()
         {
-            var fakeProfile = Substitute.For<IProfile>();
-            fakeProfile.GetPassword("").ReturnsForAnyArgs("Tdd");
-            var fakeToken = Substitute.For<IToken>();
-            fakeToken.GetRandom("").ReturnsForAnyArgs("520999");
+            var fakeProfile = Substitute.For<ProfileDao>();
+            fakeProfile.GetRegisterTimeInMinutes(Arg.Any<string>()).ReturnsForAnyArgs(100);
+            var fakeToken = Substitute.For<RsaTokenDao>();
+            fakeToken.GetRandom(Arg.Any<int>()).ReturnsForAnyArgs("123456");
             var target = new AuthenticationService(fakeProfile, fakeToken);
 
-            var actual = target.IsValid("Kyo", "Tdd520999");
+            var actual = target.IsValid("Kyo", "123456");
 
             //always failed
             Assert.IsTrue(actual);
