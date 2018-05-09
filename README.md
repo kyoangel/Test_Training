@@ -5,7 +5,7 @@ Project seqence
     - for dependency can't control
     - production code can't change signature
 - 2.RsaSecureToken
-    - learn dependency by Interface
+    - learn loose dependency by Interface
     - stub/mock framework (NSubstitute)
     - DI / IoC
 - 3.IsolatedByInheritanceAndOverride
