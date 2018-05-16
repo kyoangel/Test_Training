@@ -127,7 +127,7 @@ namespace ServerApiDependency
         /// <param name="apiType">Type of the API.</param>
         /// <param name="apiPage">The API page.</param>
         /// <exception cref="System.NotImplementedException"></exception>
-        private void SaveFailRequestToDb(ApiType apiType, string apiPage)
+        internal virtual void SaveFailRequestToDb(ApiType apiType, string apiPage)
         {
             // don't implement
             throw new NotImplementedException();

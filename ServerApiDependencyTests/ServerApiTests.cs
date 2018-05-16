@@ -5,6 +5,7 @@ using ServerApiDependency.Enum;
 using ServerApiDependency.Enums;
 using ServerApiDependency.Utility.CustomException;
 using System;
+using System.Net;
 
 namespace ServerApiDependency.Tests
 {
@@ -13,28 +14,22 @@ namespace ServerApiDependency.Tests
     {
         private ServerApi _serverApi;
 
-        [TestInitialize]
-        public void TestInit()
-        {
-            var fakeLogger = Substitute.For<ILogger>();
-            _serverApi = Substitute.For<ServerApi>(fakeLogger);
-        }
-
         /// <summary>
-        /// LV 1, verify api correct response
+        /// LV 3, verify specific method be called
         /// </summary>
         [TestMethod()]
-        public void post_cancelGame_third_party_success_test()
+        public void post_cancelGame_third_party_exception_test()
         {
-            // Assert success
-            GivenPostToThirdPartyReturn(0);
+            // Assert SaveFailRequestToDb() be called once
+            GivenPostToThirdPartyThrow(new WebException());
 
-            Assert.AreEqual(ServerResponse.Correct, _serverApi.CancelGame());
-        }
+            Action actual = () =>
+            {
+                _serverApi.CancelGame();
+            };
+            actual.Should().Throw<WebException>();
 
-        private void GivenPostToThirdPartyReturn(int returnValue)
-        {
-            _serverApi.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(returnValue);
+            _serverApi.Received(1).SaveFailRequestToDb(Arg.Any<ApiType>(), Arg.Any<string>());
         }
 
         /// <summary>
@@ -51,13 +46,32 @@ namespace ServerApiDependency.Tests
         }
 
         /// <summary>
-        /// LV 3, verify specific method be called
+        /// LV 1, verify api correct response
         /// </summary>
         [TestMethod()]
-        public void post_cancelGame_third_party_exception_test()
+        public void post_cancelGame_third_party_success_test()
         {
-            // Assert SaveFailRequestToDb() be called once
-            Assert.Fail();
+            // Assert success
+            GivenPostToThirdPartyReturn(0);
+
+            Assert.AreEqual(ServerResponse.Correct, _serverApi.CancelGame());
+        }
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            var fakeLogger = Substitute.For<ILogger>();
+            _serverApi = Substitute.For<ServerApi>(fakeLogger);
+        }
+
+        private void GivenPostToThirdPartyReturn(int returnValue)
+        {
+            _serverApi.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(returnValue);
+        }
+
+        private void GivenPostToThirdPartyThrow(Exception exception)
+        {
+            _serverApi.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(x => throw exception);
         }
     }
 }
