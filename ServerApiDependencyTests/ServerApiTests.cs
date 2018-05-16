@@ -21,7 +21,7 @@ namespace ServerApiDependency.Tests
         [TestMethod()]
         public void post_cancelGame_third_party_fail_test()
         {
-            // Assert PostToThirdParty() return not correct should throw ServerApiFailException
+            // Assert PostToThirdParty() return not correct should throw AuthFailException
             Assert.Fail();
         }
 

@@ -1,11 +1,13 @@
-﻿namespace ServerApiDependency.Interface
+﻿using ServerApiDependency.Enum;
+
+namespace ServerApiDependency.Interface
 {
     public interface IServerApi
     {
-        int CancelGame();
+        ServerResponse CancelGame();
 
-        int GameResult();
+        ServerResponse GameResult();
 
-        int StartGame();
+        ServerResponse StartGame();
     }
 }

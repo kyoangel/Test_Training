@@ -1,4 +1,5 @@
-﻿using ServerApiDependency.Enums;
+﻿using ServerApiDependency.Enum;
+using ServerApiDependency.Enums;
 using ServerApiDependency.Interface;
 using ServerApiDependency.Utility;
 using ServerApiDependency.Utility.CustomException;
@@ -9,18 +10,22 @@ namespace ServerApiDependency
 {
     public class ServerApi : IServerApi
     {
-        public int CancelGame()
+        public ServerResponse CancelGame()
         {
             const string apiPage = "cancel.php";
             try
             {
                 var response = PostToThirdParty(ApiType.CancelGame, apiPage);
-                if (response != 0)
+                if (response != (int)ServerResponse.Correct)
                 {
                     TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
-                    throw new ServerApiFailException();
+                    if (response == (int)ServerResponse.AuthFail)
+                    {
+                        throw new AuthFailException();
+                    }
                 }
-                return response;
+
+                return (ServerResponse)response;
             }
             catch (WebException e)
             {
@@ -30,18 +35,21 @@ namespace ServerApiDependency
             }
         }
 
-        public int GameResult()
+        public ServerResponse GameResult()
         {
             const string apiPage = "result.php";
             try
             {
                 var response = PostToThirdParty(ApiType.GameResult, apiPage);
-                if (response != 0)
+                if (response != (int)ServerResponse.Correct)
                 {
                     TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
-                    throw new ServerApiFailException();
+                    if (response == (int)ServerResponse.AuthFail)
+                    {
+                        throw new AuthFailException();
+                    }
                 }
-                return response;
+                return (ServerResponse)response;
             }
             catch (WebException e)
             {
@@ -51,18 +59,21 @@ namespace ServerApiDependency
             }
         }
 
-        public int StartGame()
+        public ServerResponse StartGame()
         {
             const string apiPage = "start.php";
             try
             {
                 var response = PostToThirdParty(ApiType.StartGame, apiPage);
-                if (response != 0)
+                if (response != (int)ServerResponse.Correct)
                 {
                     TiDebugHelper.Error($"{apiPage} response has error, ErrorCode = {response}");
-                    throw new ServerApiFailException();
+                    if (response == (int)ServerResponse.AuthFail)
+                    {
+                        throw new AuthFailException();
+                    }
                 }
-                return response;
+                return (ServerResponse)response;
             }
             catch (WebException e)
             {
