@@ -19,6 +19,11 @@ Project seqence
     - compare object by properties
     - partial compare
     - verify Exceptions
+- 6.ServerApiDependency (sum up challenge)
+    - remove static dependency
+    - knowing inheritance and override to loose coupling
+    - mock object for Assersion
+    - verify Exceptions by FluentAssertion
 
 tips: 傳入 stub 物件的多種方式，可參考：
 --
