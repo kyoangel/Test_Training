@@ -1,13 +1,25 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using ServerApiDependency.Enum;
 using ServerApiDependency.Enums;
+using ServerApiDependency.Utility.CustomException;
+using System;
 
 namespace ServerApiDependency.Tests
 {
     [TestClass()]
     public class ServerApiTests
     {
+        private ServerApi _serverApi;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            var fakeLogger = Substitute.For<ILogger>();
+            _serverApi = Substitute.For<ServerApi>(fakeLogger);
+        }
+
         /// <summary>
         /// LV 1, verify api correct response
         /// </summary>
@@ -15,10 +27,14 @@ namespace ServerApiDependency.Tests
         public void post_cancelGame_third_party_success_test()
         {
             // Assert success
-            var api = Substitute.For<ServerApi>();
-            api.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(0);
-            var actual = api.CancelGame();
-            Assert.AreEqual(ServerResponse.Correct, actual);
+            GivenPostToThirdPartyReturn(0);
+
+            Assert.AreEqual(ServerResponse.Correct, _serverApi.CancelGame());
+        }
+
+        private void GivenPostToThirdPartyReturn(int returnValue)
+        {
+            _serverApi.PostToThirdParty(Arg.Any<ApiType>(), Arg.Any<string>()).ReturnsForAnyArgs(returnValue);
         }
 
         /// <summary>
@@ -28,7 +44,10 @@ namespace ServerApiDependency.Tests
         public void post_cancelGame_third_party_fail_test()
         {
             // Assert PostToThirdParty() return not correct should throw AuthFailException
-            Assert.Fail();
+            GivenPostToThirdPartyReturn(99);
+
+            Action actual = () => { _serverApi.CancelGame(); };
+            actual.Should().Throw<AuthFailException>();
         }
 
         /// <summary>

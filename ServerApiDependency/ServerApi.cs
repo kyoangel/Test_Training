@@ -23,7 +23,17 @@ namespace ServerApiDependency
 
     public class ServerApi : IServerApi
     {
-        private readonly Logger _logger = new Logger();
+        private readonly ILogger _logger;
+
+        public ServerApi()
+        {
+            _logger = new Logger();
+        }
+
+        public ServerApi(ILogger logger)
+        {
+            _logger = logger;
+        }
 
         public ServerResponse CancelGame()
         {
@@ -33,8 +43,7 @@ namespace ServerApiDependency
                 var response = PostToThirdParty(ApiType.CancelGame, apiPage);
                 if (response != (int)ServerResponse.Correct)
                 {
-                    var message = $"{apiPage} response has error, ErrorCode = {response}";
-                    _logger.Error(message);
+                    _logger.Error($"{apiPage} response has error, ErrorCode = {response}");
                     if (response == (int)ServerResponse.AuthFail)
                     {
                         throw new AuthFailException();
