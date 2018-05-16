@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="ILogger.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Interface\IServerApi.cs" />
+    <Compile Include="ServerApi.cs" />
+    <Compile Include="Enum\ApiType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="request.cs" />
-    <Compile Include="TiDebugHelper.cs" />
+    <Compile Include="Utility\CustomException\ServerApiFailException.cs" />
+    <Compile Include="Utility\TiDebugHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
