@@ -16,10 +16,11 @@ namespace RsaSecureToken.Tests
         {
             var target = new AuthenticationService();
 
-            var actual = target.IsValid("Kyo", "123456");
+			// implement your own act
+            var actual = target.IsValid("","");
 
-            //always failed
-            Assert.IsTrue(actual);
+            // make your own Assert
+            Assert.Fail();
         }
     }
 }
