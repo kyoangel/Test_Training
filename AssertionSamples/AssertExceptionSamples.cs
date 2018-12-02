@@ -6,7 +6,10 @@ namespace AssertionSamples
     [TestClass]
     public class AssertExceptionSample
     {
-        [TestMethod]
+		/// <summary>
+		/// 100分
+		/// </summary>
+		[TestMethod]
         public void Divide_positive()
         {
             var calculator = new Calculator();
@@ -14,7 +17,10 @@ namespace AssertionSamples
             Assert.AreEqual(2.5m, actual);
         }
 
-        [TestMethod]
+		/// <summary>
+		/// 100分
+		/// </summary>
+		[TestMethod]
         public void Divide_Zero()
         {
             var calculator = new Calculator();
