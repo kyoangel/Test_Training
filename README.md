@@ -1,12 +1,15 @@
 # Test_Training
-Project seqence
---
+## Restrict: this is simulate production code, so 
+ 1. CAN'T change signature.
+ 2. CAN'T make accessibility level from non-public to public
+
+# Project sequence
 - 1.XmasChecker
     - for dependency can't control
-    - production code can't change signature
+    - to learn how to deal with DateTime type
 - 2.RsaSecureToken
     - learn loose dependency by Interface
-    - stub/mock framework (NSubstitute)
+    - introduce stub/mock framework (NSubstitute)
     - DI / IoC
 - 3.IsolatedByInheritanceAndOverride
     - isolated by inheritance and virtual keyword
