@@ -12,7 +12,7 @@ namespace RsaSecureToken
 
 			// 根據 registerMinutes 取得 RSA token 目前的亂數
 			var rsaToken = new RsaTokenDao();
-			var seed = rsaToken.GetRandomSeed(registerMinutes);
+			var seed = rsaToken.GetRandom(registerMinutes);
 
 			// 驗證傳入的 password 是否等於 otp
 			var isValid = password == seed.Next(0, 999999).ToString("000000"); ;
@@ -39,7 +39,7 @@ namespace RsaSecureToken
 
 	public class RsaTokenDao
 	{
-		public Random GetRandomSeed(int minutes)
+		public Random GetRandom(int minutes)
 		{
 			return new Random((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalMinutes - minutes);
 		}

@@ -14,13 +14,12 @@ namespace RsaSecureToken.Tests
         [TestMethod()]
         public void IsValidTest()
         {
-            var target = new AuthenticationService();
+            var sut = new AuthenticationService();
 
 			// implement your own act
-            var actual = target.IsValid("","");
+            var actual = sut.IsValid("","");
 
-            // make your own Assert
-            Assert.Fail();
+            Assert.IsTrue(actual);
         }
     }
 }
