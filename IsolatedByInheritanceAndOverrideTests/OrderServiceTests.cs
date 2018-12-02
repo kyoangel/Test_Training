@@ -2,6 +2,9 @@
 
 namespace IsolatedByInheritanceAndOverride.Tests
 {
+	/// <summary>
+	/// 400分
+	/// </summary>
     [TestClass()]
     public class OrderServiceTests
     {

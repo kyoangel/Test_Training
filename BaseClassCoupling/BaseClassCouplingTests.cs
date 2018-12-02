@@ -6,6 +6,9 @@ namespace BaseClassCoupling
     [TestClass]
     public class BaseClassCouplingTests
     {
+	    /// <summary>
+	    /// 400分
+	    /// </summary>
         [TestMethod]
         public void calculate_half_year_employee_bonus()
         {

@@ -9,6 +9,9 @@ namespace AssertionSamples
     {
         private readonly CustomerRepo _customerRepo = new CustomerRepo();
 
+	    /// <summary>
+	    /// 100分
+	    /// </summary>
         [TestMethod]
         public void CompareCustomer()
         {
@@ -18,6 +21,9 @@ namespace AssertionSamples
             Assert.Fail();
         }
 
+	    /// <summary>
+	    /// 100分
+	    /// </summary>
         [TestMethod]
         public void CompareCustomerList()
         {
@@ -27,6 +33,9 @@ namespace AssertionSamples
             Assert.Fail();
         }
 
+	    /// <summary>
+	    /// 100分
+	    /// </summary>
         [TestMethod]
         public void CompareComposedCustomer()
         {
@@ -39,6 +48,7 @@ namespace AssertionSamples
         /// <summary>
         /// Partials the compare customer birthday and order price.
         /// partial compare should use anonymous type
+		/// 200分
         /// </summary>
         [TestMethod]
         public void PartialCompare_Customer_Birthday_And_Order_Price()

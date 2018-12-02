@@ -11,6 +11,9 @@ namespace RsaSecureToken.Tests
     [TestClass()]
     public class AuthenticationServiceTests
     {
+	    /// <summary>
+	    /// 300分
+	    /// </summary>
         [TestMethod()]
         public void IsValidTest()
         {
