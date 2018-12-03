@@ -18,7 +18,7 @@ namespace AssertionSamples
         }
 
 		/// <summary>
-		/// 100分
+		/// 300分
 		/// </summary>
 		[TestMethod]
         public void Divide_Zero()
@@ -26,7 +26,7 @@ namespace AssertionSamples
             var calculator = new Calculator();
             var actual = calculator.Divide(5, 0);
 
-            //how to assert expected exception?
+            //Try to assert expected exception with property?
         }
     }
 
@@ -36,7 +36,7 @@ namespace AssertionSamples
         {
             if (second == 0)
             {
-                throw new YouShallNotPassException();
+                throw new YouShallNotPassException() {Denominator = second};
             }
             return first / second;
         }
@@ -44,5 +44,6 @@ namespace AssertionSamples
 
     public class YouShallNotPassException : Exception
     {
+	    public decimal Denominator { get; set; }
     }
 }
