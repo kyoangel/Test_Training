@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace IsolatedByInheritanceAndOverride.Tests
+namespace IsolatedByInheritanceAndOverrideTests
 {
     [TestClass()]
     public class OrderServiceTests

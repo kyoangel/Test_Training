@@ -1,5 +1,4 @@
 ﻿using ServerApiDependency.Enum;
-using ServerApiDependency.Enums;
 using ServerApiDependency.Interface;
 using ServerApiDependency.Utility;
 using ServerApiDependency.Utility.CustomException;

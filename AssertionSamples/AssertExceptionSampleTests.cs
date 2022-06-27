@@ -4,7 +4,7 @@ using System;
 namespace AssertionSamples
 {
     [TestClass]
-    public class AssertExceptionSample
+    public class AssertExceptionSampleTests
     {
         [TestMethod]
         public void Divide_positive()

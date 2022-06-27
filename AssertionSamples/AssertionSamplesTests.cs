@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AssertionSamples
 {
     [TestClass]
-    public class AssertionSamples
+    public class AssertionSamplesTests
     {
         private readonly CustomerRepo _customerRepo = new CustomerRepo();
 

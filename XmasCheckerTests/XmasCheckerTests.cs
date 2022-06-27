@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace XmasChecker.Tests
+namespace XmasCheckerTests
 {
 	[TestClass()]
 	public class XmasCheckerTests
@@ -8,7 +8,7 @@ namespace XmasChecker.Tests
 		[TestMethod()]
 		public void Today_is_not_xmas()
 		{
-			var xmasChecker = new XmasChecker();
+			var xmasChecker = new XmasChecker.XmasChecker();
 
 			var actual = xmasChecker.IsTodayXmas();
 
@@ -18,7 +18,7 @@ namespace XmasChecker.Tests
 		[TestMethod()]
 		public void Today_is_xmas()
 		{
-			var xmasChecker = new XmasChecker();
+			var xmasChecker = new XmasChecker.XmasChecker();
 
 			var actual = xmasChecker.IsTodayXmas();
 

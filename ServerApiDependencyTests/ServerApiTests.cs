@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ServerApiDependency.Tests
+namespace ServerApiDependencyTests
 {
     [TestClass()]
     public class ServerApiTests

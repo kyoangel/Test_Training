@@ -1,12 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RsaSecureToken;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RsaSecureToken.Tests
+namespace RsaSecureTokenTests
 {
     [TestClass()]
     public class AuthenticationServiceTests

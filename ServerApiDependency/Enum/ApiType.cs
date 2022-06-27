@@ -1,4 +1,4 @@
-﻿namespace ServerApiDependency.Enums
+﻿namespace ServerApiDependency.Enum
 {
     public enum ApiType
     {
